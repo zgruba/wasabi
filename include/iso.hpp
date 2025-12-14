@@ -8,7 +8,6 @@
 #include <boost/intrusive_ptr.hpp>
 
 #include "types.hpp"
-#include "utils.hpp"
 #include "ptm.hpp"
 
 namespace wasabi::iso {

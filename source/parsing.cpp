@@ -21,7 +21,6 @@
 #include <omp.h>
 
 #include "wasabi_db.hpp"
-#include "utils.hpp"
 
 namespace wasabi {
 // ----------------- Utilities -----------------
