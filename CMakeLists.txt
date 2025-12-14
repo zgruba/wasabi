@@ -48,10 +48,6 @@ target_include_directories(amino_acids INTERFACE ${CMAKE_SOURCE_DIR}/include)
 add_library(ptm INTERFACE)
 target_include_directories(ptm INTERFACE ${CMAKE_SOURCE_DIR}/include)
 
-# --- Header-only threshold queue library ---
-add_library(threshold_queue INTERFACE)
-target_include_directories(threshold_queue INTERFACE ${CMAKE_SOURCE_DIR}/include)
-
 # --- Wasabi DB Templates  ---
 add_library(wasabi_db INTERFACE)
 target_include_directories(wasabi_db INTERFACE ${CMAKE_SOURCE_DIR}/include)
@@ -75,20 +71,8 @@ target_link_libraries(openms_lib PRIVATE OpenMS OpenMP::OpenMP_CXX amino_acids)
 # Executables
 # -------------------------------
 
-add_executable(wasabi_example examples/wasabi_example.cpp)
-target_link_libraries(wasabi_example PRIVATE iso_lib IsoSpec++ openms_lib OpenMS wasabi_db OpenMP::OpenMP_CXX amino_acids threshold_queue)
-
-add_executable(correctness_test examples/correctness_test.cpp)
-target_link_libraries(correctness_test PRIVATE iso_lib IsoSpec++ openms_lib OpenMS wasabi_db OpenMP::OpenMP_CXX amino_acids threshold_queue)
-
-add_executable(collect_dist4plot examples/collect_dist4plot.cpp)
-target_link_libraries(collect_dist4plot PRIVATE iso_lib IsoSpec++ openms_lib OpenMS wasabi_db OpenMP::OpenMP_CXX amino_acids threshold_queue)
-
-# add_executable(small_example examples/small_example.cpp)
-# target_link_libraries(small_example PRIVATE iso_lib IsoSpec++ openms_lib OpenMS wasabi_db OpenMP::OpenMP_CXX amino_acids)
-
 add_executable(prepare_csv_for_deeplc source/prepare_csv_for_deeplc.cpp)
 target_link_libraries(prepare_csv_for_deeplc PRIVATE iso_lib openms_lib Boost::program_options)
 
 add_executable(wasabi_annotate source/wasabi_annotate.cpp)
-target_link_libraries(wasabi_annotate PRIVATE iso_lib IsoSpec++ openms_lib OpenMS wasabi_db OpenMP::OpenMP_CXX amino_acids threshold_queue Boost::program_options Boost::log)
+target_link_libraries(wasabi_annotate PRIVATE iso_lib IsoSpec++ openms_lib OpenMS wasabi_db OpenMP::OpenMP_CXX amino_acids Boost::program_options Boost::log)
