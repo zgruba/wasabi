@@ -790,6 +790,3 @@ void save_annotations(const wasabi::FastaRecords& records,
                                             entries,
                                             dists);
 }
-
-// todo: Extract (source, include, CMakeLists.txt) to separate repository
-// todo: Do proofreading and cleanups of functions that can be merged
